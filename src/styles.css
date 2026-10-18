@@ -28,3 +28,24 @@
 @media(max-width:1000px){.code-panel{left:-130px;top:8%;opacity:.55}.tree-panel{left:-130px;opacity:.4}.terminal-panel{right:-140px;opacity:.55}.data-panel{right:-90px;opacity:.45}.hero-brand{transform:translateY(0)}}
 @media(max-width:600px){.cinematic-hero{height:82svh;min-height:590px}.hero-wordmark{font-size:clamp(80px,20vw,120px)}.brand-symbol{width:115px;height:115px}.hero-tagline{letter-spacing:.18em;font-size:11px}.hero-brand>p{max-width:280px}.float-panel{opacity:.2}.code-panel{left:-215px}.terminal-panel{right:-225px}.tree-panel,.data-panel{display:none}.hero-bottom span:last-child{display:none}.windows{margin-top:55px}}
 @media(prefers-reduced-motion:reduce){.brand-symbol,.float-panel,.orbit{animation:none!important}}
+
+/* NØUS Experience — additive typography, subtle tech accents and seamless product navigation */
+.code-links code{font-size:clamp(16px,2.08vw,24px);line-height:1.5}
+.product-mini strong{font-size:clamp(34px,3vw,42px)}
+.komvos-content strong{font-size:clamp(54px,7vw,94px)}
+.window-bar,.window-footer{font-size:12px}
+.hero-tagline{font-size:clamp(14px,1.85vw,24px)}
+.inner-page .back{font-size:30px;font-weight:900;letter-spacing:-.11em;color:#102a43;margin-bottom:55px;transition:transform .35s ease,opacity .35s ease}
+.inner-page .back:hover{transform:translateX(-4px);opacity:.7}
+.products-window{view-transition-name:products-card}
+.komvos-window{view-transition-name:komvos-card}
+.inner-komvos .showcase-komvos{view-transition-name:komvos-card}
+.inner-pop9 .showcase-pop9,.inner-komm .showcase-komm{view-transition-name:products-card}
+::view-transition-old(products-card),::view-transition-new(products-card),::view-transition-old(komvos-card),::view-transition-new(komvos-card){animation-duration:.85s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+::view-transition-old(root){animation:fadeNOut .42s ease both}
+::view-transition-new(root){animation:fadeNIn .72s ease both}
+@keyframes fadeNOut{to{opacity:0;filter:blur(7px)}}
+@keyframes fadeNIn{from{opacity:0;filter:blur(7px)}to{opacity:1;filter:blur(0)}}
+.window{transition:transform .8s cubic-bezier(.22,1,.36,1),box-shadow .8s ease}
+@media(max-width:600px){.code-links code{font-size:clamp(14px,3.5vw,19px)}.hero-tagline{font-size:12px}.product-mini strong{font-size:29px}.window-bar,.window-footer{font-size:10px}}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root),::view-transition-old(products-card),::view-transition-new(products-card),::view-transition-old(komvos-card),::view-transition-new(komvos-card){animation:none!important}}
