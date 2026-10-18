@@ -1,1 +1,67 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#f8fafc"/><meta name="description" content="NØUS — tecnologia e inteligência aplicada ao crescimento."/><title>NØUS — Conecte. Entenda. Evolua.</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOUS — Conecte. Entenda. Evolua.</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<nav class="nav">
+  <a class="nav__logo" href="#topo">NØUS</a>
+  <ul class="nav__links">
+    <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a class="nav__cta" href="#cadastro">Começar</a></li>
+  </ul>
+</nav>
+<header class="hero" id="topo">
+  <video class="hero__video" autoplay muted playsinline>
+    <source src="/nous-abertura.mp4" type="video/mp4">
+  </video>
+  <div class="hero__content">
+    <h1>Conecte. Entenda. Evolua.</h1>
+    <p>A suíte NOUS une PØP9, KØMM e KømvøS num só fluxo de inteligência.</p>
+    <a class="btn" href="#cadastro">Criar conta grátis</a>
+  </div>
+</header>
+<section class="static" id="estatica">
+  <div class="icon icon--rede" title="Rede"><img src="/icons/rede.svg" alt="Rede"></div>
+  <div class="icon icon--base" title="Base"><img src="/icons/base.svg" alt="Base"></div>
+  <div class="icon icon--grafico" title="Grafico"><img src="/icons/grafico.svg" alt="Grafico"></div>
+  <div class="icon icon--serie" title="Serie"><img src="/icons/serie.svg" alt="Serie"></div>
+</section>
+<section class="features" id="recursos">
+  <h2>Recursos</h2>
+  <div class="grid">
+    <article><h3>Conexão</h3><p>Integra PØP9, KØMM e KømvøS sem retrabalho.</p></article>
+    <article><h3>Entendimento</h3><p>Dados viram contexto acionável em tempo real.</p></article>
+    <article><h3>Evolução</h3><p>Métricas que mostram o que cresceu de verdade.</p></article>
+    <article><h3>Automação</h3><p>Fluxos que rodam sozinhos, do dado à decisão.</p></article>
+  </div>
+</section>
+<section class="plans" id="planos">
+  <h2>Planos</h2>
+  <div class="grid">
+    <article class="plan"><h3>Essencial</h3><p class="price">R$ 0</p><p>Para testar o fluxo.</p><a class="btn" href="#cadastro">Começar</a></article>
+    <article class="plan plan--destaque"><h3>Profissional</h3><p class="price">R$ 97/mês</p><p>Para times em crescimento.</p><a class="btn" href="#cadastro">Assinar</a></article>
+    <article class="plan"><h3>Empresa</h3><p class="price">Sob consulta</p><p>Para operação completa.</p><a class="btn" href="#cadastro">Falar com vendas</a></article>
+  </div>
+</section>
+<section class="testimonials" id="depoimentos">
+  <h2>Depoimentos</h2>
+  <blockquote><p>"A NOUS encurtou nosso ciclo de decisão pela metade."</p><cite>Ana, head de operações</cite></blockquote>
+  <blockquote><p>"Finalmente uma suíte que conversa com o que a gente já usa."</p><cite>Bruno, fundador</cite></blockquote>
+</section>
+<section class="signup" id="cadastro">
+  <h2>Entre na lista</h2>
+  <form id="form-email">
+    <input type="email" name="email" placeholder="seu@email.com" required>
+    <button class="btn" type="submit">Quero acesso</button>
+  </form>
+  <p class="signup__msg" id="msg" hidden></p>
+</section>
+<script src="/script.js"></script>
+</body>
+</html>
