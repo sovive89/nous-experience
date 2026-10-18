@@ -1,9 +1,8 @@
-# NØUS Landing
+# NØUS — Abertura
 
-Versão substituída a partir de nous-landing.zip.
+Página única com a abertura da NØUS: slogan digitado, seis links em forma de código (em perspectiva) e menu.
 
-Execute `npm install` e `npm run dev`.
+- Os links ficam numa lista no começo do script de `index.html` (bloco "EDITE AQUI").
+- Sem login, cadastro, planos nem depoimentos.
 
-**Pendente:** adicione `public/nous-abertura.mp4` (o vídeo não estava no ZIP enviado).
-
-O formulário salva e-mails apenas no localStorage do navegador; não há envio a servidor.
+`npm install` e `npm run dev`.
