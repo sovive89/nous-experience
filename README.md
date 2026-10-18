@@ -1,5 +1,9 @@
-# NØUS Experience
+# NØUS Landing
 
-Conecte. Entenda. Evolua.
+Versão substituída a partir de nous-landing.zip.
 
-Website institucional da NØUS em desenvolvimento.
+Execute `npm install` e `npm run dev`.
+
+**Pendente:** adicione `public/nous-abertura.mp4` (o vídeo não estava no ZIP enviado).
+
+O formulário salva e-mails apenas no localStorage do navegador; não há envio a servidor.
