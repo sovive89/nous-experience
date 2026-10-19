@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8">
+<title>Cena NØUS (fonte do vídeo da abertura)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+<!-- Cena determinística: window.render(t) desenha o quadro no tempo t (segundos). Câmera fixa, sem giro.
+     Os links NÃO estão aqui: são cartões vivos (HTML) no site, por cima do último quadro. -->
+<style>
+*{box-sizing:border-box}html,body{margin:0}
+:root{--navy:#14284b;--soft:#5b6b82;--o:#ff6a1a;--b:#2f6fe0}
+body{width:1600px;height:900px;position:relative;overflow:hidden;font-family:"JetBrains Mono",monospace;color:var(--navy);
+ background:radial-gradient(ellipse at 50% 38%,#ffffff 0,#f3f6fa 45%,#e4eaf2 100%)}
+.floor{position:absolute;left:0;right:0;top:600px;bottom:0;background:linear-gradient(#e7edf4,#f6f8fb 60%,#eaf0f6)}
+.floor:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(20,40,75,.12)}
+.grid{position:absolute;left:0;right:0;top:600px;bottom:0;
+ background:repeating-linear-gradient(90deg,transparent 0 99px,rgba(255,255,255,.9) 99px 100px),repeating-linear-gradient(0deg,transparent 0 44px,rgba(120,140,170,.18) 44px 45px);
+ -webkit-mask-image:linear-gradient(#000,transparent 90%)}
+#logoWrap{position:absolute;left:550px;top:90px;width:500px;transform-origin:50% 60%}
+#logoWrap img{width:500px;display:block}
+#refl{position:absolute;left:550px;top:520px;width:500px;transform:scaleY(-1);filter:blur(2px);-webkit-mask-image:linear-gradient(to top,#000 0,transparent 55%)}
+#slogan{position:absolute;left:0;width:1600px;top:482px;text-align:center;font:600 24px/1 "JetBrains Mono";letter-spacing:.09em;white-space:pre}
+.cur{display:inline-block;width:14px;height:3px;background:var(--navy);margin-left:4px}
+svg.full{position:absolute;inset:0;filter:drop-shadow(0 0 3px rgba(120,150,200,.55))}
+.pn{position:absolute;border:1px solid rgba(20,40,75,.22);background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.22));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.07)}
+.pn h4{position:absolute;left:16px;top:14px;margin:0;font:600 10px/1 "JetBrains Mono";letter-spacing:.16em;color:var(--soft);text-transform:uppercase}
+.bx{position:absolute;border:1.3px solid var(--b);background:rgba(255,255,255,.7);border-radius:4px;font:600 12px/1 "JetBrains Mono";display:flex;align-items:center;justify-content:center;color:var(--navy);flex-direction:column;gap:5px}
+.bx small{font:400 8px "JetBrains Mono";color:var(--soft);letter-spacing:.1em}.bx.o{border-color:var(--o)}
+table{position:absolute;left:16px;width:398px;border-collapse:collapse;table-layout:fixed;font:500 11px/1 "JetBrains Mono"}
+th{font:600 8.5px "JetBrains Mono";letter-spacing:.14em;color:var(--soft);text-align:left;padding:0 0 8px;text-transform:uppercase}
+td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g{color:#15803d;font-weight:600}
+</style>
+<body>
+<div class="floor"></div><div class="grid"></div>
+<svg class="full" id="art" viewBox="0 0 1600 900"></svg>
+<img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"></div>
+<div id="slogan"></div>
+
+<div class="pn" id="p1" style="left:70px;top:150px;width:430px;height:300px"><h4>Arquitetura · IaaS</h4>
+  <svg width="398" height="250" viewBox="0 0 398 250" style="position:absolute;left:16px;top:44px" fill="none" stroke-width="1.6">
+    <path class="t1" d="M86 125 H132" stroke="#2f6fe0"/><path class="t1" d="M222 108 H262 V56 H282" stroke="#2f6fe0"/><path class="t1" d="M222 125 H282" stroke="#2f6fe0"/><path class="t1" d="M222 142 H262 V196 H282" stroke="#ff6a1a"/>
+    <circle class="d1" cx="86" cy="125" r="3.5" fill="#ff6a1a"/><circle class="d1" cx="282" cy="56" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="125" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="196" r="3.5" fill="#ff6a1a"/></svg>
+  <div class="bx b1" style="left:16px;top:152px;width:70px;height:46px">Client<small>web·app</small></div>
+  <div class="bx b1" style="left:148px;top:140px;width:90px;height:70px;border-width:1.6px">API<small>gateway</small></div>
+  <div class="bx b1" style="left:314px;top:76px;width:100px;height:40px">Auth<small>JWT</small></div>
+  <div class="bx b1" style="left:314px;top:145px;width:100px;height:40px">Cache<small>redis</small></div>
+  <div class="bx b1 o" style="left:314px;top:214px;width:100px;height:56px;align-items:stretch;padding:8px 10px;gap:3px;justify-content:center"><span style="text-align:center">Database</span><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i></div>
+</div>
+<div class="pn" id="p2" style="right:70px;top:150px;width:430px;height:300px"><h4>Growth · usuários ativos</h4>
+  <svg width="398" height="150" viewBox="0 0 398 150" fill="none" style="position:absolute;left:16px;top:44px"><g stroke="rgba(20,40,75,.12)"><path d="M0 30H398M0 70H398M0 110H398"/></g>
+   <polyline id="chart" pathLength="1" stroke="#2f6fe0" stroke-width="2.2" points="0,128 50,116 100,120 150,92 200,98 250,64 300,52 350,26 398,12"/><circle id="chartDot" cx="398" cy="12" r="4" fill="#ff6a1a"/></svg>
+  <table style="top:196px"><tr><th>mês</th><th>usuários</th><th>Δ</th></tr><tr class="r1"><td>jul</td><td class="m">1.240</td><td class="g">+8%</td></tr><tr class="r1"><td>ago</td><td class="m">1.810</td><td class="g">+46%</td></tr><tr class="r1"><td>set</td><td class="m">2.960</td><td class="g">+63%</td></tr></table>
+</div>
+<script>
+const NS="http://www.w3.org/2000/svg",art=document.getElementById("art");
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=x=>1-Math.pow(1-clamp(x),3),seg=(t,a,b)=>clamp((t-a)/(b-a));
+function el(tag,at,p){const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);(p||art).appendChild(e);return e}
+/* racks em linha branca: cada um tem partes que se desenham em sequência */
+const RACKS=[];
+function rack(x,y,w,h,units,op,t0){const parts=[],g=el("g",{opacity:op});
+  const body=el("rect",{x,y,width:w,height:h,rx:3,fill:"rgba(255,255,255,.10)",stroke:"#fff","stroke-opacity":.9,"stroke-width":1.4,pathLength:1},g);body.style.strokeDasharray=1;
+  const uh=h/units,lines=[],leds=[];
+  for(let i=1;i<units;i++){const l=el("line",{x1:x,x2:x+w,y1:y+i*uh,y2:y+i*uh,stroke:"#fff","stroke-opacity":.7,"stroke-width":1,pathLength:1},g);l.style.strokeDasharray=1;lines.push(l)}
+  for(let i=0;i<units;i++){const r=el("rect",{x:x+8,y:y+i*uh+uh*.3,width:w*.34,height:uh*.4,rx:1.5,fill:"none",stroke:"#fff","stroke-opacity":.8},g);leds.push(r);
+    for(let k=0;k<3;k++)leds.push(el("circle",{cx:x+w-14-k*10,cy:y+i*uh+uh/2,r:2.2,fill:i%4==1&&k==0?"#ff6a1a":"#fff","fill-opacity":.85},g))}
+  RACKS.push({body,lines,leds,t0})}
+rack(80,190,150,360,9,.8,1.6);rack(250,260,110,290,7,.6,2.0);rack(1370,190,150,360,9,.8,1.8);rack(1240,260,110,290,7,.6,2.2);
+rack(18,560,90,200,6,.5,2.4);rack(1492,560,90,200,6,.5,2.6);
+/* rede de linhas brancas */
+const P=[[60,300],[520,130],[1080,130],[1540,300],[300,560],[1300,560],[800,760],[110,640],[1490,640],[600,380],[1000,380],[420,820],[1180,820]];
+const NET=[],seen=new Set();
+P.forEach((p,i)=>{const n=P.map((q,j)=>({j,d:(q[0]-p[0])**2+(q[1]-p[1])**2})).filter(o=>o.j!=i).sort((a,b)=>a.d-b.d).slice(0,2);
+ n.forEach(o=>{const k=[i,o.j].sort().join();if(seen.has(k))return;seen.add(k);const l=el("line",{x1:p[0],y1:p[1],x2:P[o.j][0],y2:P[o.j][1],stroke:"#fff","stroke-opacity":.7,"stroke-width":1.3,pathLength:1});l.style.strokeDasharray=1;NET.push({l,t0:.8+(NET.length%8)*.28})});
+ NET.push({c:el("circle",{cx:p[0],cy:p[1],r:3.4,fill:"#fff"}),t0:1+(i%8)*.25})});
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const SLOGAN="(CONECTE, ENTENDA, EVOLUA)";
+$$(".t1").forEach(p=>{p.setAttribute("pathLength",1);p.style.strokeDasharray=1});
+$("#chart").style.strokeDasharray=1;
+window.render=function(t){
+  // rede e racks se desenham
+  NET.forEach(o=>{const q=ease(seg(t,o.t0,o.t0+1.4));if(o.l)o.l.style.strokeDashoffset=1-q;else o.c.style.opacity=q});
+  RACKS.forEach(r=>{const q=ease(seg(t,r.t0,r.t0+1.2));r.body.style.strokeDashoffset=1-q;
+    r.lines.forEach((l,i)=>l.style.strokeDashoffset=1-ease(seg(t,r.t0+.5+i*.08,r.t0+1.6+i*.08)));
+    r.leds.forEach((e,i)=>e.style.opacity=ease(seg(t,r.t0+1.2+i*.03,r.t0+1.8+i*.03)))});
+  // logo: surge de leve e depois recua para o fundo (maior, translúcido)
+  const inq=ease(seg(t,1.0,2.6)),back=ease(seg(t,8.0,9.7));
+  const sc=(.96+.04*inq)*(1+.5*back),op=inq*(1-.8*back),bl=8*(1-inq)+3.2*back;
+  const lw=$("#logoWrap");lw.style.opacity=op;lw.style.filter=`blur(${bl}px)`;lw.style.transform=`translateY(${20*(1-inq)-14*back}px) scale(${sc})`;
+  const rf=$("#refl");rf.style.opacity=.14*inq*(1-back);
+  // slogan digitado
+  const n=Math.floor((t-2.9)/0.07),shown=t<2.9?"":SLOGAN.slice(0,Math.max(0,n+1)),done=n+1>=SLOGAN.length;
+  const blink=!done||(Math.floor(t*2)%2===0);
+  $("#slogan").innerHTML=t<2.9?"":shown+'<i class="cur" style="opacity:'+(blink?1:0)+'"></i>';
+  // diagrama IaaS
+  $("#p1").style.opacity=ease(seg(t,4.2,5.0));
+  $$(".b1").forEach((b,i)=>b.style.opacity=ease(seg(t,4.6+i*.18,5.2+i*.18)));
+  $$(".t1").forEach((p,i)=>p.style.strokeDashoffset=1-ease(seg(t,5.2+i*.25,6.0+i*.25)));
+  $$(".d1").forEach((c,i)=>c.style.opacity=ease(seg(t,6.0+i*.15,6.5+i*.15)));
+  // growth
+  $("#p2").style.opacity=ease(seg(t,5.0,5.8));
+  $("#chart").style.strokeDashoffset=1-ease(seg(t,5.6,7.4));$("#chartDot").style.opacity=ease(seg(t,7.2,7.6));
+  $$(".r1").forEach((r,i)=>r.style.opacity=ease(seg(t,6.2+i*.3,6.8+i*.3)));
+};
+window.render(0);
+</script>
+</html>
