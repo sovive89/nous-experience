@@ -88,16 +88,16 @@ var KINDS={
   produto:{label:"Produto",color:"#ff6a1a"}
 };
 var LINKS=[
-  {area:"Dados",kind:"sql",text:"SELECT * FROM nossa_atuacao;",route:"/dados",slot:[170,655,1.0,26]},
-  {area:"Desenvolvimento",kind:"js",text:'const proposta = "Nossa atuação";',route:"/desenvolvimento",slot:[1110,655,1.0,-26]},
-  {area:"Inteligência artificial",kind:"python",text:'modelo.predict("Nossa atuação")',route:"/ia",slot:[310,585,.8,24]},
-  {area:"Infraestrutura",kind:"terminal",text:"$ nous deploy --cloud",route:"/infraestrutura",slot:[965,585,.8,-24]},
-  {area:"Integrações",kind:"http",text:"GET /nossas-solucoes",route:"/integracoes",slot:[405,522,.62,22]},
-  {area:"NØUS",kind:"block",text:"NØUS(\n    conecte,\n    entenda,\n    evolua\n)",route:"/nous",slot:[880,520,.62,-22]},
-  {area:"Produtos",kind:"produto",text:"PØP9  ·  KØMM  ·  KømVøS",route:"/produtos",slot:[1090,455,1.1,-16],w:236},
+  {area:"Dados",kind:"sql",text:"SELECT * FROM nossa_atuacao;",route:"/dados",slot:[130,672,1.0,50]},
+  {area:"Desenvolvimento",kind:"js",text:'const proposta = "Nossa atuação";',route:"/desenvolvimento",slot:[1150,672,1.0,-50]},
+  {area:"Inteligência artificial",kind:"python",text:'modelo.predict("Nossa atuação")',route:"/ia",slot:[222,620,.88,47]},
+  {area:"Infraestrutura",kind:"terminal",text:"$ nous deploy --cloud",route:"/infraestrutura",slot:[1058,620,.88,-47]},
+  {area:"Integrações",kind:"http",text:"GET /nossas-solucoes",route:"/integracoes",slot:[308,568,.76,44]},
+  {area:"NØUS",kind:"block",text:"NØUS(\n    conecte,\n    entenda,\n    evolua\n)",route:"/nous",slot:[972,566,.76,-44]},
+  {area:"Documentação",kind:"terminal",text:"$ nous docs --open",route:"/documentacao",slot:[390,520,.66,40]},
+  {area:"APIs",kind:"http",text:"GET /api/v1/docs",route:"/api",slot:[890,520,.66,-40]},
+  {area:"Produtos",kind:"produto",text:"PØP9  ·  KØMM  ·  KømVøS",route:"/produtos",slot:[1090,455,1.1,-34],w:236},
   {area:"Home",kind:"terminal",text:"$ cd ~/nous",route:"/"},
-  {area:"Documentação",kind:"terminal",text:"$ nous docs --open",route:"/documentacao"},
-  {area:"APIs",kind:"http",text:"GET /api/v1/docs",route:"/api"},
   {area:"PØP9",kind:"produto",text:"PØP9",route:"/pop9",group:"produto"},
   {area:"KØMM",kind:"produto",text:"KØMM",route:"/komm",group:"produto"},
   {area:"KømVøS",kind:"produto",text:"KømVøS",route:"/komvos",group:"produto",logo:"/komvos.png"}
@@ -130,17 +130,18 @@ var LINKS=[
     return {sc:sc,ox:(pw-W*sc)/2,oy:(ph-H*sc)/2,pw:pw,ph:ph};
   }
   function draw(now){
-    var g=geom();
+    var g=geom(),ytop=g.oy+510*g.sc,ybot=g.oy+672*g.sc,lim=g.ph-70,
+        k=ybot>lim?Math.max(.4,(lim-ytop)/(ybot-ytop)):1;
     els.forEach(function(o){
       var q=reduce?1:ease((now-o.delay)/1100),
-          fx=Math.min(Math.max(g.ox+o.s[0]*g.sc,70),g.pw-70),
-          fy=Math.min(Math.max(g.oy+o.s[1]*g.sc,70),g.ph-60),
+          fx=Math.min(Math.max(g.ox+o.s[0]*g.sc,80),g.pw-80),
+          fy=Math.max(ytop+(g.oy+o.s[1]*g.sc-ytop)*k,ytop*.6),
           vx=g.ox+VP[0]*g.sc,vy=g.oy+VP[1]*g.sc,
           x=vx+(fx-vx)*q,y=vy+(fy-vy)*q,
-          sc=(.1+.9*q)*o.s[2]*Math.min(1,g.sc*1.05+.1),
-          ry=o.s[3]*(1.7-.7*q);
+          sc=(.1+.9*q)*o.s[2]*Math.min(1,g.sc*1.05+.1)*(.6+.4*k),
+          ry=o.s[3]*(1.6-.6*q);
       o.el.style.opacity=Math.min(1,q*2.2);
-      o.el.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%) perspective(800px) rotateY("+ry+"deg) scale("+sc+")";
+      o.el.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%) perspective(650px) rotateY("+ry+"deg) rotateZ("+(-o.s[3]/14)+"deg) scale("+sc+")";
     });
   }
   function loop(ts){
