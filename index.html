@@ -9,19 +9,25 @@
 :root{--ice:#e9eef3;--navy:#14284b;--orange:#ff6a1a;--ink-soft:#5b6b82;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;--disp:"Sora",system-ui,sans-serif;color-scheme:light}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
-body{background:var(--ice);color:var(--navy);font-family:var(--mono);display:flex;flex-direction:column;align-items:center;overflow-x:hidden}
+body{background:var(--ice);color:var(--navy);font-family:var(--mono);overflow-x:hidden}
 .player{position:relative;width:100vw;height:100vh;height:100dvh;overflow:hidden;background:var(--ice)}
 .player video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
-.hot{position:absolute;display:block;border-radius:8px;text-decoration:none;opacity:0;pointer-events:none;outline:2px solid transparent;outline-offset:2px;transition:background .2s,outline-color .2s}
-.ended .hot{opacity:1;pointer-events:auto}
-.hot:hover,.hot:focus-visible{background:rgba(255,255,255,.28);outline-color:var(--c)}
-.menu{position:absolute;top:2.2%;left:0;right:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;opacity:0;pointer-events:none;transition:opacity .6s}
+/* cartões de link (reais, <a>) */
+.lk{position:absolute;left:0;top:0;display:block;width:max-content;max-width:46vw;text-decoration:none;color:var(--c);
+  background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.55));border:1px solid rgba(255,255,255,.95);outline:1px solid rgba(20,40,75,.16);outline-offset:-3px;
+  border-radius:10px;padding:9px 14px 10px;box-shadow:0 14px 30px rgba(20,40,75,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  font:600 15px/1.45 var(--mono);white-space:pre;opacity:0;pointer-events:none;will-change:transform,opacity}
+.lk .a{display:block;font:400 9px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+.ended .lk{pointer-events:auto}
+.lk:hover,.lk:focus-visible{outline:2px solid var(--c);outline-offset:1px;background:#fff}
+.menu{position:absolute;top:2.2%;left:0;right:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 12px;opacity:0;pointer-events:none;transition:opacity .8s .6s}
 .ended .menu{opacity:1;pointer-events:auto}
 .menu a,.list a{display:inline-flex;gap:7px;align-items:center;font:600 clamp(10px,1.05vw,13px) var(--mono);color:var(--navy);text-decoration:none;background:rgba(255,255,255,.78);border:1px solid rgba(20,40,75,.15);border-radius:999px;padding:6px 11px}
 .menu a i,.list a i{width:7px;height:7px;border-radius:50%;background:var(--c);display:block}
 .menu a:hover,.menu a:focus-visible,.list a:hover,.list a:focus-visible{background:#fff;outline:2px solid var(--c);outline-offset:2px}
-.bar{position:absolute;left:0;right:0;bottom:2%;display:flex;gap:10px;justify-content:center}
-.bar button{font:600 clamp(10px,1vw,12px) var(--mono);color:var(--navy);background:rgba(255,255,255,.82);border:1px solid rgba(20,40,75,.2);border-radius:6px;padding:7px 12px;cursor:pointer}
+.menu .sep{width:1px;background:rgba(20,40,75,.2);margin:2px 4px}
+.bar{position:absolute;left:0;right:0;bottom:2%;display:flex;gap:10px;justify-content:center;pointer-events:none}
+.bar button{pointer-events:auto;font:600 clamp(10px,1vw,12px) var(--mono);color:var(--navy);background:rgba(255,255,255,.82);border:1px solid rgba(20,40,75,.2);border-radius:6px;padding:7px 12px;cursor:pointer}
 .bar button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 #skip{display:none}.playing #skip{display:block}
 #replay{display:none}.ended #replay{display:block}
@@ -30,18 +36,18 @@ body{background:var(--ice);color:var(--navy);font-family:var(--mono);display:fle
 .screen[hidden]{display:none!important}
 .screen h2{font-family:var(--disp);font-size:clamp(28px,5vw,52px);margin:0}
 .screen code{font-weight:600;font-size:clamp(14px,2vw,20px)}
+.screen img{max-width:min(420px,80vw);height:auto;align-self:flex-start}
 .screen p{max-width:60ch;color:var(--ink-soft);line-height:1.6;margin:0}
 .screen button{align-self:flex-start;font:600 13px var(--mono);padding:9px 14px;border-radius:6px;border:1px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer}
 @media (max-width:700px){
-  body{justify-content:flex-start}
   .player{height:auto;aspect-ratio:16/9;overflow:visible}
   .player video{object-fit:contain}
-  .hot,.menu{display:none}
+  .lk,.menu{display:none}
   .ended .list{display:flex}
-  .list{flex-direction:column;gap:10px;align-items:stretch;width:100%;padding:16px max(16px,env(safe-area-inset-left,0px)) 28px;max-width:480px}
+  .list{flex-direction:column;gap:10px;align-items:stretch;width:100%;padding:16px max(16px,env(safe-area-inset-left,0px)) 28px;max-width:480px;margin:0 auto}
   .list a{border-radius:8px;font-size:13px;padding:11px 12px;justify-content:flex-start}
 }
-@media (prefers-reduced-motion:reduce){.screen,.menu,.hot{transition:none}}
+@media (prefers-reduced-motion:reduce){.screen,.menu{transition:none}}
 </style>
 </head>
 <body>
@@ -50,7 +56,7 @@ body{background:var(--ice);color:var(--navy);font-family:var(--mono);display:fle
     <source src="/nous-abertura.mp4" type="video/mp4">
   </video>
   <nav class="menu" id="menu" aria-label="Menu principal"></nav>
-  <div id="hots"></div>
+  <div id="cards"></div>
   <div class="bar">
     <button id="skip" type="button">Pular introdução</button>
     <button id="sound" type="button">Ligar som</button>
@@ -62,16 +68,19 @@ body{background:var(--ice);color:var(--navy);font-family:var(--mono);display:fle
 <section class="screen" id="screen" hidden role="dialog" aria-modal="true" aria-labelledby="sTitle">
   <code id="sCode"></code>
   <h2 id="sTitle"></h2>
+  <img id="sLogo" alt="" hidden>
   <p>Aqui entra a tela desta área. O link cresceu até ocupar a página. Conteúdo real a definir.</p>
   <button id="back" type="button">Voltar para a abertura</button>
 </section>
 
 <script>
 /* ===== EDITE AQUI =====
-   LINKS: cada item é um link. "kind" define cor e rótulo (sintaxe do print).
-   box:[x,y,largura,altura] em pixels do vídeo (1280x720): onde o link fica sobre a imagem.
-   Sem "box": aparece só no menu. As seis linhas da abertura já estão no vídeo;
-   para mudá-las é preciso renderizar o vídeo de novo. */
+   LINKS: cada item é um link real.
+   - kind: cor e rótulo (sintaxe do print).
+   - slot: [x, y, escala, giro] no quadro do vídeo (1280x720). Sem slot, o link aparece só no menu.
+     Os slots seguem duas diagonais no chão, da frente (grande) para o ponto de fuga (pequeno).
+   - group: "menu" fica antes do separador, "produto" depois.
+   Para mais links: copie uma linha, mude texto e rota. */
 var KINDS={
   sql:{label:"SQL",color:"#7c3aed"},js:{label:"JavaScript",color:"#d6336c"},
   python:{label:"Python",color:"#15803d"},terminal:{label:"Terminal",color:"#b45309"},
@@ -79,64 +88,94 @@ var KINDS={
   produto:{label:"Produto",color:"#ff6a1a"}
 };
 var LINKS=[
-  {area:"Dados",kind:"sql",text:"SELECT * FROM nossa_atuacao;",route:"/dados",box:[137,70,189,54]},
-  {area:"Desenvolvimento",kind:"js",text:'const proposta = "Nossa atuação";',route:"/desenvolvimento",box:[1018,94,245,57]},
-  {area:"Inteligência artificial",kind:"python",text:'modelo.predict("Nossa atuação")',route:"/ia",box:[45,556,280,62]},
-  {area:"Infraestrutura",kind:"terminal",text:"$ nous deploy --cloud",route:"/infraestrutura",box:[715,595,198,62]},
-  {area:"Integrações",kind:"http",text:"GET /nossas-solucoes",route:"/integracoes",box:[28,631,241,70]},
-  {area:"NØUS",kind:"block",text:"NØUS(\n    conecte,\n    entenda,\n    evolua\n)",route:"/nous",box:[1109,549,146,150]},
-  {area:"PØP9",kind:"produto",text:"PØP9",route:"/pop9",box:[98,228,242,93]},
-  {area:"KØMM",kind:"produto",text:"KØMM",route:"/komm",box:[98,332,242,158]},
-  {area:"KømVøS",kind:"produto",text:"KømVøS",route:"/komvos",box:[921,211,300,302]},
+  {area:"Dados",kind:"sql",text:"SELECT * FROM nossa_atuacao;",route:"/dados",slot:[170,655,1.0,26]},
+  {area:"Desenvolvimento",kind:"js",text:'const proposta = "Nossa atuação";',route:"/desenvolvimento",slot:[1110,655,1.0,-26]},
+  {area:"Inteligência artificial",kind:"python",text:'modelo.predict("Nossa atuação")',route:"/ia",slot:[310,585,.8,24]},
+  {area:"Infraestrutura",kind:"terminal",text:"$ nous deploy --cloud",route:"/infraestrutura",slot:[965,585,.8,-24]},
+  {area:"Integrações",kind:"http",text:"GET /nossas-solucoes",route:"/integracoes",slot:[405,522,.62,22]},
+  {area:"NØUS",kind:"block",text:"NØUS(\n    conecte,\n    entenda,\n    evolua\n)",route:"/nous",slot:[880,520,.62,-22]},
+  {area:"Produtos",kind:"produto",text:"PØP9  ·  KØMM  ·  KømVøS",route:"/produtos",slot:[1090,455,1.1,-16],w:236},
   {area:"Home",kind:"terminal",text:"$ cd ~/nous",route:"/"},
   {area:"Documentação",kind:"terminal",text:"$ nous docs --open",route:"/documentacao"},
-  {area:"APIs",kind:"http",text:"GET /api/v1/docs",route:"/api"}
+  {area:"APIs",kind:"http",text:"GET /api/v1/docs",route:"/api"},
+  {area:"PØP9",kind:"produto",text:"PØP9",route:"/pop9",group:"produto"},
+  {area:"KØMM",kind:"produto",text:"KØMM",route:"/komm",group:"produto"},
+  {area:"KømVøS",kind:"produto",text:"KømVøS",route:"/komvos",group:"produto",logo:"/komvos.png"}
 ];
 /* ===== FIM ===== */
 (function(){
-  var W=1280,H=720;
-  var player=document.getElementById("player"),v=document.getElementById("v"),hots=document.getElementById("hots");
+  var W=1280,H=720,VP=[640,330];
+  var player=document.getElementById("player"),v=document.getElementById("v"),cards=document.getElementById("cards");
   var menu=document.getElementById("menu"),list=document.getElementById("list");
   var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  LINKS.forEach(function(l){
+  var els=[],sepDone=false;
+  LINKS.forEach(function(l,i){
     var k=KINDS[l.kind]||KINDS.block;
-    var label=function(a){a.href="#"+l.route;a.dataset.area=l.area;a.dataset.t=l.text;a.style.setProperty("--c",k.color);a.innerHTML="<i></i>"+l.area;return a};
-    menu.appendChild(label(document.createElement("a")));
-    list.appendChild(label(document.createElement("a")));
-    if(l.box){
-      var h=document.createElement("a");h.className="hot";h.href="#"+l.route;h.dataset.area=l.area;h.dataset.t=l.text;
-      h.setAttribute("aria-label",l.area+": "+l.text.replace(/\s+/g," "));h.style.setProperty("--c",k.color);
-      h._b=l.box;
-      hots.appendChild(h);
+    var lab=function(a){a.href="#"+l.route;a.dataset.area=l.area;a.dataset.t=l.text;if(l.logo)a.dataset.logo=l.logo;a.style.setProperty("--c",k.color);a.innerHTML="<i></i>"+l.area;return a};
+    if(l.group==="produto"&&!sepDone){sepDone=true;var s=document.createElement("span");s.className="sep";menu.appendChild(s)}
+    menu.appendChild(lab(document.createElement("a")));
+    list.appendChild(lab(document.createElement("a")));
+    if(l.slot){
+      var c=document.createElement("a");c.className="lk";c.href="#"+l.route;c.dataset.area=l.area;c.dataset.t=l.text;
+      c.style.setProperty("--c",k.color);c.innerHTML='<span class="a">'+l.area+" · "+k.label+"</span>";
+      var tx=document.createElement("span");tx.textContent=l.text;c.appendChild(tx);
+      c.setAttribute("aria-label",l.area+": "+l.text.replace(/\s+/g," "));
+      if(l.w)c.style.minWidth=l.w+"px";cards.appendChild(c);els.push({el:c,s:l.slot,i:els.length,tx:tx,full:l.text});
     }
   });
-  function place(){
-    var pw=player.clientWidth,ph=player.clientHeight,narrow=innerWidth<=700;
-    var sc=narrow?Math.min(pw/W,ph/H):Math.max(pw/W,ph/H),ox=(pw-W*sc)/2,oy=(ph-H*sc)/2;
-    Array.prototype.forEach.call(hots.children,function(h){var b=h._b;
-      h.style.left=(ox+b[0]*sc)+"px";h.style.top=(oy+b[1]*sc)+"px";h.style.width=(b[2]*sc)+"px";h.style.height=(b[3]*sc)+"px"});
+  var prog=0,t0=null,raf=0;
+  var ease=function(x){x=Math.min(1,Math.max(0,x));return 1-Math.pow(1-x,3)};
+  function geom(){
+    var pw=player.clientWidth,ph=player.clientHeight,sc=Math.max(pw/W,ph/H);
+    return {sc:sc,ox:(pw-W*sc)/2,oy:(ph-H*sc)/2,pw:pw,ph:ph};
   }
-  place();addEventListener("resize",place);
-  function end(){player.classList.remove("playing");player.classList.add("ended");document.body.className="ended"}
-  function start(){player.classList.add("playing");player.classList.remove("ended");document.body.className="";v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  function draw(now){
+    var g=geom();
+    els.forEach(function(o){
+      var q=reduce?1:ease((now-o.delay)/1100),
+          fx=Math.min(Math.max(g.ox+o.s[0]*g.sc,70),g.pw-70),
+          fy=Math.min(Math.max(g.oy+o.s[1]*g.sc,70),g.ph-60),
+          vx=g.ox+VP[0]*g.sc,vy=g.oy+VP[1]*g.sc,
+          x=vx+(fx-vx)*q,y=vy+(fy-vy)*q,
+          sc=(.1+.9*q)*o.s[2]*Math.min(1,g.sc*1.05+.1),
+          ry=o.s[3]*(1.7-.7*q);
+      o.el.style.opacity=Math.min(1,q*2.2);
+      o.el.style.transform="translate("+x+"px,"+y+"px) translate(-50%,-50%) perspective(800px) rotateY("+ry+"deg) scale("+sc+")";
+    });
+  }
+  function loop(ts){
+    if(t0===null)t0=ts;draw(ts-t0);
+    if(ts-t0<1100+els.length*140+100)raf=requestAnimationFrame(loop);
+  }
+  function showCards(){
+    els.forEach(function(o,i){o.delay=i*140});
+    if(reduce){draw(1e6);return}
+    t0=null;cancelAnimationFrame(raf);raf=requestAnimationFrame(loop);
+  }
+  function hideCards(){cancelAnimationFrame(raf);els.forEach(function(o){o.el.style.opacity=0})}
+  addEventListener("resize",function(){if(player.classList.contains("ended"))draw(1e6)});
+
+  function end(){player.classList.remove("playing");player.classList.add("ended");document.body.className="ended";showCards()}
+  function start(){hideCards();player.classList.add("playing");player.classList.remove("ended");document.body.className="";v.currentTime=0;var p=v.play();if(p&&p.catch)p.catch(function(){})}
   v.addEventListener("ended",end);
   document.getElementById("skip").addEventListener("click",function(){v.pause();if(v.duration)v.currentTime=Math.max(0,v.duration-0.05);end()});
   document.getElementById("replay").addEventListener("click",start);
   var snd=document.getElementById("sound");
   snd.addEventListener("click",function(){v.muted=!v.muted;snd.textContent=v.muted?"Ligar som":"Desligar som"});
   if(reduce){
-    v.removeAttribute("autoplay");v.poster="/final.jpg";v.preload="metadata";
-    v.addEventListener("loadedmetadata",function(){v.currentTime=Math.max(0,v.duration-0.05);end()});
+    v.poster="/final.jpg";v.preload="metadata";
+    v.addEventListener("loadedmetadata",function(){v.currentTime=Math.max(0,v.duration-0.05)});
     end();
   }else{
-    var p=v.play();if(p&&p.catch)p.catch(function(){/* autoplay bloqueado: o botão Repetir/Pular continua funcionando */});
+    var p=v.play();if(p&&p.catch)p.catch(function(){/* autoplay bloqueado: Pular/Repetir continuam funcionando */});
   }
   /* tela que cresce */
-  var screenEl=document.getElementById("screen"),last=null;
+  var screenEl=document.getElementById("screen"),last=null,logo=document.getElementById("sLogo");
   function open(a){
     last=a;var r=a.getBoundingClientRect();
     document.getElementById("sCode").textContent=a.dataset.t.replace(/\s*\n\s*/g," ");
     document.getElementById("sTitle").textContent=a.dataset.area;
+    if(a.dataset.logo){logo.src=a.dataset.logo;logo.alt=a.dataset.area;logo.hidden=false}else{logo.hidden=true}
     screenEl.hidden=false;
     if(!reduce&&r.width){screenEl.style.transition="none";screenEl.style.opacity="0.2";
       screenEl.style.transform="translate("+r.left+"px,"+r.top+"px) scale("+(r.width/innerWidth)+","+(r.height/innerHeight)+")";
@@ -144,7 +183,7 @@ var LINKS=[
     document.getElementById("back").focus();
   }
   function close(){screenEl.hidden=true;screenEl.style.transform="";if(location.hash)history.replaceState(null,"","#");if(last)last.focus()}
-  document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest(".hot,.menu a,.list a");if(!a)return;e.preventDefault();open(a)});
+  document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest(".lk,.menu a,.list a");if(!a)return;e.preventDefault();open(a)});
   document.getElementById("back").addEventListener("click",close);
   document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!screenEl.hidden)close()});
 })();
