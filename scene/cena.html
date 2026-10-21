@@ -81,13 +81,13 @@ window.render=function(t){
     r.leds.forEach((e,i)=>e.style.opacity=ease(seg(t,r.t0+1.2+i*.03,r.t0+1.8+i*.03)))});
   // logo: surge de leve e depois recua para o fundo (maior, translúcido)
   const inq=ease(seg(t,1.0,2.6)),back=ease(seg(t,8.0,9.7));
-  const sc=(.96+.04*inq)*(1+.18*back),op=inq*(1-.8*back),bl=8*(1-inq)+3.2*back;
+  const sc=(.96+.04*inq)*(1+.18*back),op=inq*(1-.8*back),bl=8*(1-inq)+1.6*back;
   const lw=$("#logoWrap");lw.style.opacity=op;lw.style.filter=`blur(${bl}px)`;lw.style.transform=`translateY(${20*(1-inq)-14*back}px) scale(${sc})`;
   const rf=$("#refl");rf.style.opacity=.14*inq*(1-back);
   // slogan digitado
   const n=Math.floor((t-2.9)/0.07),shown=t<2.9?"":SLOGAN.slice(0,Math.max(0,n+1)),done=n+1>=SLOGAN.length;
   const blink=!done||(Math.floor(t*2)%2===0);
-  $("#slogan").innerHTML=t<2.9?"":shown+'<i class="cur" style="opacity:'+(blink?1:0)+'"></i>';
+  $("#slogan").style.opacity=1-ease(seg(t,7.6,8.8));$("#slogan").innerHTML=t<2.9?"":shown+'<i class="cur" style="opacity:'+(blink?1:0)+'"></i>';
   // diagrama IaaS
   $("#p1").style.opacity=.8*ease(seg(t,4.2,5.0));
   $$(".b1").forEach((b,i)=>b.style.opacity=ease(seg(t,4.6+i*.18,5.2+i*.18)));
