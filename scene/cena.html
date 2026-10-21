@@ -40,7 +40,7 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
 <body>
 <div class="floor"></div><div class="grid"></div>
 <svg class="full" id="art" viewBox="0 0 1600 900"></svg>
-<img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"></div>
+<img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"><svg id="trema" viewBox="0 0 886 464" style="position:absolute;left:0;top:0;width:640px;height:335px;overflow:visible"><defs><radialGradient id="og" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ff5a0a"/></radialGradient><filter id="gl" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#gl)"><circle id="td1" cx="490" cy="258" r="14.5" fill="url(#og)"/><circle id="td2" cx="639" cy="258" r="14.5" fill="url(#og)"/></g></svg></div>
 <div id="slogan"></div>
 
 <div class="pn" id="p1" style="left:20px;top:120px;width:500px;height:330px"><h4>nous / atuação</h4>
@@ -81,6 +81,9 @@ window.render=function(t){
   const sc=(.96+.04*inq)*(1+.18*back),op=inq*(1-.8*back),bl=8*(1-inq)+1.6*back;
   const lw=$("#logoWrap");lw.style.opacity=op;lw.style.filter=`blur(${bl}px)`;lw.style.transform=`translateY(${20*(1-inq)-14*back}px) scale(${sc})`;
   const rf=$("#refl");rf.style.opacity=.14*inq*(1-back);
+  // trema laranja sobre o U (surge brilhando, depois assenta)
+  const tq=ease(seg(t,3.0,3.7)),pulse=1+.35*Math.max(0,1-Math.abs(t-3.7)/.5);
+  ["#td1","#td2"].forEach((id,i)=>{const e=$(id),q=ease(seg(t,3.0+i*.25,3.7+i*.25));e.style.opacity=q;e.style.transformBox="fill-box";e.style.transformOrigin="center";e.style.transform=`translateY(${-18*(1-q)}px) scale(${(.3+.7*q)*pulse})`});
   // slogan digitado
   const n=Math.floor((t-2.9)/0.07),shown=t<2.9?"":SLOGAN.slice(0,Math.max(0,n+1)),done=n+1>=SLOGAN.length;
   const blink=!done||(Math.floor(t*2)%2===0);
