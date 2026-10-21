@@ -9,6 +9,7 @@
 :root{--navy:#14284b;--soft:#5b6b82;--o:#ff6a1a;--b:#2f6fe0}
 body{width:1600px;height:900px;position:relative;overflow:hidden;font-family:"JetBrains Mono",monospace;color:var(--navy);
  background:radial-gradient(ellipse at 50% 38%,#ffffff 0,#f3f6fa 45%,#e4eaf2 100%)}
+#beams{position:absolute;inset:0;opacity:0;background:linear-gradient(104deg,transparent 0 17%,rgba(255,255,255,.55) 20%,transparent 26%),linear-gradient(90deg,transparent 0 42%,rgba(255,255,255,.7) 50%,transparent 58%),linear-gradient(76deg,transparent 0 74%,rgba(255,255,255,.55) 80%,transparent 83%);-webkit-mask-image:linear-gradient(#000,transparent 70%)}
 .floor{position:absolute;left:0;right:0;top:600px;bottom:0;background:linear-gradient(#e7edf4,#f6f8fb 60%,#eaf0f6)}
 .floor:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(20,40,75,.12)}
 .grid{position:absolute;left:0;right:0;top:600px;bottom:0;
@@ -36,7 +37,7 @@ th{font:600 8.5px "JetBrains Mono";letter-spacing:.14em;color:var(--soft);text-a
 td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g{color:#15803d;font-weight:600}
 </style>
 <body>
-<div class="floor"></div><div class="grid"></div>
+<div id="beams"></div><div class="floor"></div><div class="grid"></div>
 <svg class="full" id="art" viewBox="0 0 1600 900"></svg>
 <img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"><svg id="trema" viewBox="0 0 886 464" style="position:absolute;left:0;top:0;width:760px;height:398px;overflow:visible"><defs><radialGradient id="og" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ff5a0a"/></radialGradient><filter id="gl" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#gl)"><path id="saber" d="M243 436 L438 276" pathLength="1" stroke-linecap="round" fill="none" stroke="url(#og)" stroke-width="20" style="stroke-dasharray:1;stroke-dashoffset:1"/><path id="saberc" d="M243 436 L438 276" pathLength="1" stroke-linecap="round" fill="none" stroke="#fff5e0" stroke-width="7" style="stroke-dasharray:1;stroke-dashoffset:1"/><circle id="td1" cx="490" cy="258" r="14.5" fill="url(#og)"/><circle id="td2" cx="639" cy="258" r="14.5" fill="url(#og)"/></g></svg></div>
 <div id="slogan"></div>
@@ -65,6 +66,16 @@ const NET=[],seen=new Set();
 P.forEach((p,i)=>{const n=P.map((q,j)=>({j,d:(q[0]-p[0])**2+(q[1]-p[1])**2})).filter(o=>o.j!=i).sort((a,b)=>a.d-b.d).slice(0,2);
  n.forEach(o=>{const k=[i,o.j].sort().join();if(seen.has(k))return;seen.add(k);const l=el("line",{x1:p[0],y1:p[1],x2:P[o.j][0],y2:P[o.j][1],stroke:"#fff","stroke-opacity":.7,"stroke-width":1.3,pathLength:1});l.style.strokeDasharray=1;NET.push({l,t0:.8+(NET.length%8)*.28})});
  NET.push({c:el("circle",{cx:p[0],cy:p[1],r:3.4,fill:"#fff"}),t0:1+(i%8)*.25})});
+/* fluxos de dados laranja/azul ligando as janelas à logo */
+const STREAMS=[];
+[["M570 250 C640 250 650 330 700 335",2],["M575 430 C640 440 660 400 720 380",1],["M1175 210 C1100 220 1060 300 960 335",2],["M1170 400 C1100 400 1050 380 900 375",1],["M520 520 C600 500 640 440 700 410",1],["M1190 530 C1100 500 1010 450 930 410",1]].forEach(([d,w],i)=>{
+  const g=el("g",{opacity:0});
+  el("path",{d,fill:"none",stroke:"#ff8a1f","stroke-width":5*w/2+1,"stroke-opacity":.28,"stroke-linecap":"round",pathLength:1},g);
+  const a=el("path",{d,fill:"none",stroke:"#ff7a18","stroke-width":2.2,"stroke-linecap":"round",pathLength:1},g);
+  const b=el("path",{d:d,transform:"translate(0,5)",fill:"none",stroke:"#3b82f6","stroke-width":1.8,"stroke-linecap":"round",pathLength:1},g);
+  a.setAttribute("stroke-opacity",.8);b.setAttribute("stroke-opacity",.7);
+  const c=el("path",{d,fill:"none",stroke:"#fff","stroke-width":4,"stroke-linecap":"round",pathLength:1},g);c.style.strokeDasharray=".04 .21";
+  STREAMS.push({g,a,b,c,i})});
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const SLOGAN="(CONECTE, ENTENDA, EVOLUA)";
 window.render=function(t){
@@ -84,6 +95,9 @@ window.render=function(t){
   [["#saber",.9],["#saberc",1]].forEach(([id,k])=>{const e=$(id);e.style.strokeDashoffset=1-sq;e.style.opacity=off*k*fl});
   [["#td1",3.35],["#td2",3.85]].forEach(([id,t0])=>{const e=$(id),q=ease(seg(t,t0,t0+.35)),pl=1+.4*Math.max(0,1-Math.abs(t-(t0+.35))/.35);
     e.style.opacity=q*off*fl;e.style.transformBox="fill-box";e.style.transformOrigin="center";e.style.transform=`scale(${(.2+.8*q)*pl})`});
+  // feixes de luz e fluxos de dados
+  $("#beams").style.opacity=.9*ease(seg(t,.4,2.0))*(1-.5*back);
+  STREAMS.forEach(o=>{const q=ease(seg(t,5.6+o.i*.15,6.6+o.i*.15)),k=q*off;o.g.setAttribute("opacity",k);o.c.style.strokeDashoffset=-(t*.5+o.i*.13)});
   // slogan digitado
   const n=Math.floor((t-2.9)/0.07),shown=t<2.9?"":SLOGAN.slice(0,Math.max(0,n+1)),done=n+1>=SLOGAN.length;
   const blink=!done||(Math.floor(t*2)%2===0);
