@@ -14,13 +14,13 @@ body{width:1600px;height:900px;position:relative;overflow:hidden;font-family:"Je
 .grid{position:absolute;left:0;right:0;top:600px;bottom:0;
  background:repeating-linear-gradient(90deg,transparent 0 99px,rgba(255,255,255,.9) 99px 100px),repeating-linear-gradient(0deg,transparent 0 44px,rgba(120,140,170,.18) 44px 45px);
  -webkit-mask-image:linear-gradient(#000,transparent 90%)}
-#logoWrap{position:absolute;left:480px;top:70px;width:640px;transform-origin:50% 60%}
-#logoWrap img{width:640px;display:block}
-#refl{position:absolute;left:480px;top:560px;width:640px;transform:scaleY(-1);filter:blur(2px);-webkit-mask-image:linear-gradient(to top,#000 0,transparent 55%)}
-#slogan{position:absolute;left:0;width:1600px;top:578px;text-align:center;font:600 24px/1 "JetBrains Mono";letter-spacing:.09em;white-space:pre}
+#logoWrap{position:absolute;left:420px;top:24px;width:760px;transform-origin:50% 60%}
+#logoWrap img{width:760px;display:block}
+#refl{position:absolute;left:420px;top:455px;width:760px;transform:scaleY(-1);filter:blur(2px);-webkit-mask-image:linear-gradient(to top,#000 0,transparent 55%)}
+#slogan{position:absolute;left:0;width:1600px;top:492px;text-align:center;font:600 26px/1 "JetBrains Mono";letter-spacing:.09em;white-space:pre}
 .cur{display:inline-block;width:14px;height:3px;background:var(--navy);margin-left:4px}
 svg.full{position:absolute;inset:0;filter:drop-shadow(0 0 3px rgba(120,150,200,.55))}
-.pn{position:absolute;border:1px solid rgba(20,40,75,.16);background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.04);}
+.pn{position:absolute;border:1px solid rgba(20,40,75,.16);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.04);}
 
 .pn h4{position:absolute;left:16px;top:14px;margin:0;font:600 10px/1 "JetBrains Mono";letter-spacing:.16em;color:var(--soft);text-transform:uppercase}
 .bx{position:absolute;border:1.3px solid var(--b);background:rgba(255,255,255,.3);border-radius:4px;font:600 12px/1 "JetBrains Mono";display:flex;align-items:center;justify-content:center;color:var(--navy);flex-direction:column;gap:5px}
@@ -30,9 +30,10 @@ svg.full{position:absolute;inset:0;filter:drop-shadow(0 0 3px rgba(120,150,200,.
 .cd b,.cd2 b{display:inline-block;width:26px;color:#9aa8bd;font-weight:400}
 .cd2{position:absolute;left:18px;top:44px;font:500 13px/24px "JetBrains Mono";color:var(--navy);white-space:pre}
 .ln.g{color:#15803d}
-#p1{transform:perspective(900px) rotateY(16deg) scale(1.15);transform-origin:0 0}
+#p1{transform:perspective(900px) rotateY(14deg) scale(1.1);transform-origin:0 0}
 #p2{transform:perspective(900px) rotateY(-16deg) scale(1.1);transform-origin:100% 0}
 #p3{transform:perspective(900px) rotateY(-14deg) scale(1.1);transform-origin:100% 0}
+#p4{transform:perspective(900px) rotateY(14deg);transform-origin:0 0}#p5{transform:perspective(900px) rotateY(-14deg);transform-origin:100% 0}
 table{position:absolute;left:16px;width:398px;border-collapse:collapse;table-layout:fixed;font:500 11px/1 "JetBrains Mono"}
 th{font:600 8.5px "JetBrains Mono";letter-spacing:.14em;color:var(--soft);text-align:left;padding:0 0 8px;text-transform:uppercase}
 td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g{color:#15803d;font-weight:600}
@@ -40,15 +41,14 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
 <body>
 <div class="floor"></div><div class="grid"></div>
 <svg class="full" id="art" viewBox="0 0 1600 900"></svg>
-<img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"><svg id="trema" viewBox="0 0 886 464" style="position:absolute;left:0;top:0;width:640px;height:335px;overflow:visible"><defs><radialGradient id="og" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ff5a0a"/></radialGradient><filter id="gl" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#gl)"><circle id="td1" cx="490" cy="258" r="14.5" fill="url(#og)"/><circle id="td2" cx="639" cy="258" r="14.5" fill="url(#og)"/></g></svg></div>
+<img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"><svg id="trema" viewBox="0 0 886 464" style="position:absolute;left:0;top:0;width:760px;height:398px;overflow:visible"><defs><radialGradient id="og" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ffd27a"/><stop offset=".45" stop-color="#ff8a1f"/><stop offset="1" stop-color="#ff5a0a"/></radialGradient><filter id="gl" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#gl)"><path id="saber" d="M243 436 L438 276" pathLength="1" stroke-linecap="round" fill="none" stroke="url(#og)" stroke-width="20" style="stroke-dasharray:1;stroke-dashoffset:1"/><path id="saberc" d="M243 436 L438 276" pathLength="1" stroke-linecap="round" fill="none" stroke="#fff5e0" stroke-width="7" style="stroke-dasharray:1;stroke-dashoffset:1"/><circle id="td1" cx="490" cy="258" r="14.5" fill="url(#og)"/><circle id="td2" cx="639" cy="258" r="14.5" fill="url(#og)"/></g></svg></div>
 <div id="slogan"></div>
 
-<div class="pn" id="p1" style="left:20px;top:120px;width:500px;height:330px"><h4>nous / atuação</h4>
- <div class="tree"><div class="ln i1">▾&nbsp;nous</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;dados</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;ia</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;infraestrutura</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;integracoes</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;apis</div><div class="ln i1">▾&nbsp;produtos</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;pop9</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;komm</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;komvos</div></div><div class="cd"><div class="ln i1"><b>1</b>import&nbsp;{&nbsp;conecte&nbsp;}&nbsp;from&nbsp;'nous'</div><div class="ln i1"><b>2</b>&nbsp;</div><div class="ln i1"><b>3</b>const&nbsp;dados&nbsp;=&nbsp;conecte(sistemas)</div><div class="ln i1"><b>4</b>const&nbsp;visao&nbsp;=&nbsp;entenda(dados)</div><div class="ln i1"><b>5</b>&nbsp;</div><div class="ln i1"><b>6</b>evolua(visao)</div></div></div>
-<div class="pn" id="p2" style="right:30px;top:90px;width:340px;height:190px"><h4>soluções.xml</h4>
- <div class="cd2"><div class="ln i2"><b>1</b>&lt;NOUS&gt;</div><div class="ln i2"><b>2</b>&nbsp;&nbsp;&lt;dados/&gt;</div><div class="ln i2"><b>3</b>&nbsp;&nbsp;&lt;ia/&gt;</div><div class="ln i2"><b>4</b>&nbsp;&nbsp;&lt;infraestrutura/&gt;</div><div class="ln i2"><b>5</b>&lt;/NOUS&gt;</div></div></div>
-<div class="pn" id="p3" style="right:20px;top:330px;width:360px;height:160px"><h4>Terminal</h4>
- <div class="cd2" style="top:42px;line-height:22px"><div class="ln i3">&gt; nous deploy --cloud</div><div class="ln i3">&nbsp;</div><div class="ln i3 g">✓ conectando dados...</div><div class="ln i3 g">✓ modelo de IA pronto</div><div class="ln i3 g">✓ no ar: nous.app</div></div></div>
+<div class="pn" id="p1" style="left:14px;top:70px;width:560px;height:360px"><h4>nous / atuação</h4><div class="tree"><div class="ln i1">▾&nbsp;nous</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;dados</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;desenvolvimento</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;ia</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;infraestrutura</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;integracoes</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;apis</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;documentacao</div><div class="ln i1">▾&nbsp;produtos</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;pop9</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;komm</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;komvos</div></div><div class="cd"><div class="ln i1"><b>1</b>import&nbsp;{&nbsp;conecte&nbsp;}&nbsp;from&nbsp;'nous'</div><div class="ln i1"><b>2</b>&nbsp;</div><div class="ln i1"><b>3</b>const&nbsp;dados&nbsp;=&nbsp;conecte(sistemas)</div><div class="ln i1"><b>4</b>const&nbsp;visao&nbsp;=&nbsp;entenda(dados)</div><div class="ln i1"><b>5</b>&nbsp;</div><div class="ln i1"><b>6</b>evolua(visao)</div></div></div>
+<div class="pn" id="p4" style="left:30px;top:450px;width:420px;height:96px"><h4>dados.sql · ia.py</h4><div class="cd2" style="top:36px;line-height:21px"><div class="ln i4">SELECT&nbsp;*&nbsp;FROM&nbsp;nossa_atuacao;</div><div class="ln i4">modelo.predict("Nossa&nbsp;atuação")</div></div></div>
+<div class="pn" id="p2" style="right:14px;top:60px;width:400px;height:230px"><h4>soluções.xml</h4><div class="cd2" style="line-height:24px"><div class="ln i2"><b>1</b>&lt;NOUS&gt;</div><div class="ln i2"><b>2</b>&nbsp;&nbsp;&lt;dados/&gt;</div><div class="ln i2"><b>3</b>&nbsp;&nbsp;&lt;desenvolvimento/&gt;</div><div class="ln i2"><b>4</b>&nbsp;&nbsp;&lt;ia/&gt;</div><div class="ln i2"><b>5</b>&nbsp;&nbsp;&lt;infraestrutura/&gt;</div><div class="ln i2"><b>6</b>&nbsp;&nbsp;&lt;integracoes/&gt;</div><div class="ln i2"><b>7</b>&lt;/NOUS&gt;</div></div></div>
+<div class="pn" id="p3" style="right:14px;top:310px;width:420px;height:150px"><h4>Terminal</h4><div class="cd2" style="top:42px;line-height:22px"><div class="ln i3">>&nbsp;nous&nbsp;deploy&nbsp;--cloud</div><div class="ln i3">&nbsp;</div><div class="ln i3 g">✓&nbsp;conectando&nbsp;dados...</div><div class="ln i3 g">✓&nbsp;modelo&nbsp;de&nbsp;IA&nbsp;pronto</div><div class="ln i3 g">✓&nbsp;no&nbsp;ar:&nbsp;nous.app</div></div></div>
+<div class="pn" id="p5" style="right:30px;top:480px;width:380px;height:86px"><h4>api · docs</h4><div class="cd2" style="top:34px;line-height:20px"><div class="ln i5">GET&nbsp;/nossas-solucoes</div><div class="ln i5">$&nbsp;nous&nbsp;docs&nbsp;--open</div></div></div>
 <script>
 const NS="http://www.w3.org/2000/svg",art=document.getElementById("art");
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=x=>1-Math.pow(1-clamp(x),3),seg=(t,a,b)=>clamp((t-a)/(b-a));
@@ -78,19 +78,23 @@ window.render=function(t){
     r.leds.forEach((e,i)=>e.style.opacity=ease(seg(t,r.t0+1.2+i*.03,r.t0+1.8+i*.03)))});
   // logo: surge de leve e depois recua para o fundo (maior, translúcido)
   const inq=ease(seg(t,1.0,2.6)),back=ease(seg(t,8.0,9.7));
-  const sc=(.96+.04*inq)*(1+.18*back),op=inq*(1-.8*back),bl=8*(1-inq)+1.6*back;
+  const sc=(.96+.04*inq)*(1+.42*back),op=inq*(1-.8*back),bl=8*(1-inq)+2.6*back;
   const lw=$("#logoWrap");lw.style.opacity=op;lw.style.filter=`blur(${bl}px)`;lw.style.transform=`translateY(${20*(1-inq)-14*back}px) scale(${sc})`;
   const rf=$("#refl");rf.style.opacity=.14*inq*(1-back);
-  // trema laranja sobre o U (surge brilhando, depois assenta)
-  const tq=ease(seg(t,3.0,3.7)),pulse=1+.35*Math.max(0,1-Math.abs(t-3.7)/.5);
-  ["#td1","#td2"].forEach((id,i)=>{const e=$(id),q=ease(seg(t,3.0+i*.25,3.7+i*.25));e.style.opacity=q;e.style.transformBox="fill-box";e.style.transformOrigin="center";e.style.transform=`translateY(${-18*(1-q)}px) scale(${(.3+.7*q)*pulse})`});
+  // sabre de luz no corte do O + trema do U acendendo um por vez; depois apagam
+  const off=1-ease(seg(t,7.4,8.4)),fl=1+.06*Math.sin(t*38);
+  const sq=ease(seg(t,3.0,4.0));
+  [["#saber",.9],["#saberc",1]].forEach(([id,k])=>{const e=$(id);e.style.strokeDashoffset=1-sq;e.style.opacity=off*k*fl});
+  [["#td1",3.35],["#td2",3.85]].forEach(([id,t0])=>{const e=$(id),q=ease(seg(t,t0,t0+.35)),pl=1+.4*Math.max(0,1-Math.abs(t-(t0+.35))/.35);
+    e.style.opacity=q*off*fl;e.style.transformBox="fill-box";e.style.transformOrigin="center";e.style.transform=`scale(${(.2+.8*q)*pl})`});
   // slogan digitado
   const n=Math.floor((t-2.9)/0.07),shown=t<2.9?"":SLOGAN.slice(0,Math.max(0,n+1)),done=n+1>=SLOGAN.length;
   const blink=!done||(Math.floor(t*2)%2===0);
   $("#slogan").style.opacity=1-ease(seg(t,7.6,8.8));$("#slogan").innerHTML=t<2.9?"":shown+'<i class="cur" style="opacity:'+(blink?1:0)+'"></i>';
-  // janelas de código (esmaecidas)
-  const W=(id,t0)=>{$(id).style.opacity=.85*ease(seg(t,t0,t0+.8))};W("#p1",4.2);W("#p2",5.0);W("#p3",5.6);
-  [[".i1",4.6],[".i2",5.4],[".i3",6.0]].forEach(([c,t0])=>$$(c).forEach((e,i)=>e.style.opacity=ease(seg(t,t0+i*.12,t0+.5+i*.12))));
+  // janelas de código: translúcidas; somem de leve quando a logo recua
+  const wf=1-.35*back;
+  [["#p1",4.2],["#p2",4.8],["#p3",5.4],["#p4",5.0],["#p5",5.8]].forEach(([id,t0])=>$(id).style.opacity=.7*wf*ease(seg(t,t0,t0+.8)));
+  [[".i1",4.6],[".i2",5.2],[".i3",5.8],[".i4",5.4],[".i5",6.2]].forEach(([c,t0])=>$$(c).forEach((e,i)=>e.style.opacity=ease(seg(t,t0+i*.1,t0+.5+i*.1))));
 };
 window.render(0);
 </script>
