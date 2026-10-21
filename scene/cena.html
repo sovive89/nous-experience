@@ -34,7 +34,7 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
 <img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"></div>
 <div id="slogan"></div>
 
-<div class="pn" id="p1" style="left:70px;top:150px;width:430px;height:300px"><h4>Arquitetura · IaaS</h4>
+<div class="pn" id="p1" hidden style="display:none;left:70px;top:150px;width:430px;height:300px"><h4>Arquitetura · IaaS</h4>
   <svg width="398" height="250" viewBox="0 0 398 250" style="position:absolute;left:16px;top:44px" fill="none" stroke-width="1.6">
     <path class="t1" d="M86 125 H132" stroke="#2f6fe0"/><path class="t1" d="M222 108 H262 V56 H282" stroke="#2f6fe0"/><path class="t1" d="M222 125 H282" stroke="#2f6fe0"/><path class="t1" d="M222 142 H262 V196 H282" stroke="#ff6a1a"/>
     <circle class="d1" cx="86" cy="125" r="3.5" fill="#ff6a1a"/><circle class="d1" cx="282" cy="56" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="125" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="196" r="3.5" fill="#ff6a1a"/></svg>
@@ -44,7 +44,7 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
   <div class="bx b1" style="left:314px;top:145px;width:100px;height:40px">Cache<small>redis</small></div>
   <div class="bx b1 o" style="left:314px;top:214px;width:100px;height:56px;align-items:stretch;padding:8px 10px;gap:3px;justify-content:center"><span style="text-align:center">Database</span><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i></div>
 </div>
-<div class="pn" id="p2" style="right:70px;top:150px;width:430px;height:300px"><h4>Growth · usuários ativos</h4>
+<div class="pn" id="p2" hidden style="display:none;right:70px;top:150px;width:430px;height:300px"><h4>Growth · usuários ativos</h4>
   <svg width="398" height="150" viewBox="0 0 398 150" fill="none" style="position:absolute;left:16px;top:44px"><g stroke="rgba(20,40,75,.12)"><path d="M0 30H398M0 70H398M0 110H398"/></g>
    <polyline id="chart" pathLength="1" stroke="#2f6fe0" stroke-width="2.2" points="0,128 50,116 100,120 150,92 200,98 250,64 300,52 350,26 398,12"/><circle id="chartDot" cx="398" cy="12" r="4" fill="#ff6a1a"/></svg>
   <table style="top:196px"><tr><th>mês</th><th>usuários</th><th>Δ</th></tr><tr class="r1"><td>jul</td><td class="m">1.240</td><td class="g">+8%</td></tr><tr class="r1"><td>ago</td><td class="m">1.810</td><td class="g">+46%</td></tr><tr class="r1"><td>set</td><td class="m">2.960</td><td class="g">+63%</td></tr></table>
@@ -62,10 +62,8 @@ function rack(x,y,w,h,units,op,t0){const parts=[],g=el("g",{opacity:op});
   for(let i=0;i<units;i++){const r=el("rect",{x:x+8,y:y+i*uh+uh*.3,width:w*.34,height:uh*.4,rx:1.5,fill:"none",stroke:"#fff","stroke-opacity":.8},g);leds.push(r);
     for(let k=0;k<3;k++)leds.push(el("circle",{cx:x+w-14-k*10,cy:y+i*uh+uh/2,r:2.2,fill:i%4==1&&k==0?"#ff6a1a":"#fff","fill-opacity":.85},g))}
   RACKS.push({body,lines,leds,t0})}
-rack(80,190,150,360,9,.8,1.6);rack(250,260,110,290,7,.6,2.0);rack(1370,190,150,360,9,.8,1.8);rack(1240,260,110,290,7,.6,2.2);
-rack(18,560,90,200,6,.5,2.4);rack(1492,560,90,200,6,.5,2.6);
 /* rede de linhas brancas */
-const P=[[60,300],[520,130],[1080,130],[1540,300],[300,560],[1300,560],[800,760],[110,640],[1490,640],[600,380],[1000,380],[420,820],[1180,820]];
+const P=[[300,560],[1300,560],[800,760],[110,640],[1490,640],[420,820],[1180,820]];
 const NET=[],seen=new Set();
 P.forEach((p,i)=>{const n=P.map((q,j)=>({j,d:(q[0]-p[0])**2+(q[1]-p[1])**2})).filter(o=>o.j!=i).sort((a,b)=>a.d-b.d).slice(0,2);
  n.forEach(o=>{const k=[i,o.j].sort().join();if(seen.has(k))return;seen.add(k);const l=el("line",{x1:p[0],y1:p[1],x2:P[o.j][0],y2:P[o.j][1],stroke:"#fff","stroke-opacity":.7,"stroke-width":1.3,pathLength:1});l.style.strokeDasharray=1;NET.push({l,t0:.8+(NET.length%8)*.28})});

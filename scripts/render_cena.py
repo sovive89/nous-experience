@@ -1,4 +1,4 @@
-"""Renderiza scene/cena.html em vídeo (public/nous-abertura.mp4).
+"""Renderiza scene/cena.html em vídeo (public/nous-abertura-v2.mp4).
 Uso:  python3 scripts/render_cena.py            -> vídeo completo
       python3 scripts/render_cena.py teste 1.5 6 -> PNGs de teste em /tmp
 Requer: playwright (chromium) e ffmpeg."""
@@ -15,7 +15,7 @@ def run(times=None):
             for t in times:
                 pg.evaluate("t=>render(t)",t);pg.screenshot(path=f"/tmp/cena_{t}.png")
             b.close();return
-        out=os.path.join(ROOT,"public","nous-abertura.mp4")
+        out=os.path.join(ROOT,"public","nous-abertura-v2.mp4")
         cmd=["ffmpeg","-v","error","-y","-f","image2pipe","-framerate",str(FPS),"-c:v","png","-i","-"]
         audio=os.environ.get("AUDIO")
         if audio:cmd+=["-i",audio,"-af",f"afade=t=in:d=0.6,afade=t=out:st={DUR-1.2}:d=1.2","-c:a","aac","-b:a","112k"]
