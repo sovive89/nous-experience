@@ -20,11 +20,19 @@ body{width:1600px;height:900px;position:relative;overflow:hidden;font-family:"Je
 #slogan{position:absolute;left:0;width:1600px;top:578px;text-align:center;font:600 24px/1 "JetBrains Mono";letter-spacing:.09em;white-space:pre}
 .cur{display:inline-block;width:14px;height:3px;background:var(--navy);margin-left:4px}
 svg.full{position:absolute;inset:0;filter:drop-shadow(0 0 3px rgba(120,150,200,.55))}
-.pn{position:absolute;border:1px solid rgba(20,40,75,.16);background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.04);transform:scale(1.28)}
-#p1{transform-origin:0 0}#p2{transform-origin:100% 0}
+.pn{position:absolute;border:1px solid rgba(20,40,75,.16);background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.04);}
+
 .pn h4{position:absolute;left:16px;top:14px;margin:0;font:600 10px/1 "JetBrains Mono";letter-spacing:.16em;color:var(--soft);text-transform:uppercase}
 .bx{position:absolute;border:1.3px solid var(--b);background:rgba(255,255,255,.3);border-radius:4px;font:600 12px/1 "JetBrains Mono";display:flex;align-items:center;justify-content:center;color:var(--navy);flex-direction:column;gap:5px}
 .bx small{font:400 8px "JetBrains Mono";color:var(--soft);letter-spacing:.1em}.bx.o{border-color:var(--o)}
+.tree{position:absolute;left:16px;top:44px;width:150px;font:500 12px/22px "JetBrains Mono";color:#34507a}
+.cd{position:absolute;left:190px;top:44px;font:500 13px/26px "JetBrains Mono";color:var(--navy);white-space:pre}
+.cd b,.cd2 b{display:inline-block;width:26px;color:#9aa8bd;font-weight:400}
+.cd2{position:absolute;left:18px;top:44px;font:500 13px/24px "JetBrains Mono";color:var(--navy);white-space:pre}
+.ln.g{color:#15803d}
+#p1{transform:perspective(900px) rotateY(16deg) scale(1.15);transform-origin:0 0}
+#p2{transform:perspective(900px) rotateY(-16deg) scale(1.1);transform-origin:100% 0}
+#p3{transform:perspective(900px) rotateY(-14deg) scale(1.1);transform-origin:100% 0}
 table{position:absolute;left:16px;width:398px;border-collapse:collapse;table-layout:fixed;font:500 11px/1 "JetBrains Mono"}
 th{font:600 8.5px "JetBrains Mono";letter-spacing:.14em;color:var(--soft);text-align:left;padding:0 0 8px;text-transform:uppercase}
 td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g{color:#15803d;font-weight:600}
@@ -35,21 +43,12 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
 <img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"></div>
 <div id="slogan"></div>
 
-<div class="pn" id="p1" style="left:30px;top:110px;width:430px;height:300px"><h4>Arquitetura · IaaS</h4>
-  <svg width="398" height="250" viewBox="0 0 398 250" style="position:absolute;left:16px;top:44px" fill="none" stroke-width="1.6">
-    <path class="t1" d="M86 125 H132" stroke="#2f6fe0"/><path class="t1" d="M222 108 H262 V56 H282" stroke="#2f6fe0"/><path class="t1" d="M222 125 H282" stroke="#2f6fe0"/><path class="t1" d="M222 142 H262 V196 H282" stroke="#ff6a1a"/>
-    <circle class="d1" cx="86" cy="125" r="3.5" fill="#ff6a1a"/><circle class="d1" cx="282" cy="56" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="125" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="196" r="3.5" fill="#ff6a1a"/></svg>
-  <div class="bx b1" style="left:16px;top:152px;width:70px;height:46px">Client<small>web·app</small></div>
-  <div class="bx b1" style="left:148px;top:140px;width:90px;height:70px;border-width:1.6px">API<small>gateway</small></div>
-  <div class="bx b1" style="left:314px;top:76px;width:100px;height:40px">Auth<small>JWT</small></div>
-  <div class="bx b1" style="left:314px;top:145px;width:100px;height:40px">Cache<small>redis</small></div>
-  <div class="bx b1 o" style="left:314px;top:214px;width:100px;height:56px;align-items:stretch;padding:8px 10px;gap:3px;justify-content:center"><span style="text-align:center">Database</span><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i></div>
-</div>
-<div class="pn" id="p2" style="right:30px;top:110px;width:430px;height:300px"><h4>Growth · usuários ativos</h4>
-  <svg width="398" height="150" viewBox="0 0 398 150" fill="none" style="position:absolute;left:16px;top:44px"><g stroke="rgba(20,40,75,.12)"><path d="M0 30H398M0 70H398M0 110H398"/></g>
-   <polyline id="chart" pathLength="1" stroke="#2f6fe0" stroke-width="2.2" points="0,128 50,116 100,120 150,92 200,98 250,64 300,52 350,26 398,12"/><circle id="chartDot" cx="398" cy="12" r="4" fill="#ff6a1a"/></svg>
-  <table style="top:196px"><tr><th>mês</th><th>usuários</th><th>Δ</th></tr><tr class="r1"><td>jul</td><td class="m">1.240</td><td class="g">+8%</td></tr><tr class="r1"><td>ago</td><td class="m">1.810</td><td class="g">+46%</td></tr><tr class="r1"><td>set</td><td class="m">2.960</td><td class="g">+63%</td></tr></table>
-</div>
+<div class="pn" id="p1" style="left:20px;top:120px;width:500px;height:330px"><h4>nous / atuação</h4>
+ <div class="tree"><div class="ln i1">▾&nbsp;nous</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;dados</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;ia</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;infraestrutura</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;integracoes</div><div class="ln i1">&nbsp;&nbsp;▸&nbsp;apis</div><div class="ln i1">▾&nbsp;produtos</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;pop9</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;komm</div><div class="ln i1">&nbsp;&nbsp;&nbsp;&nbsp;komvos</div></div><div class="cd"><div class="ln i1"><b>1</b>import&nbsp;{&nbsp;conecte&nbsp;}&nbsp;from&nbsp;'nous'</div><div class="ln i1"><b>2</b>&nbsp;</div><div class="ln i1"><b>3</b>const&nbsp;dados&nbsp;=&nbsp;conecte(sistemas)</div><div class="ln i1"><b>4</b>const&nbsp;visao&nbsp;=&nbsp;entenda(dados)</div><div class="ln i1"><b>5</b>&nbsp;</div><div class="ln i1"><b>6</b>evolua(visao)</div></div></div>
+<div class="pn" id="p2" style="right:30px;top:90px;width:340px;height:190px"><h4>soluções.xml</h4>
+ <div class="cd2"><div class="ln i2"><b>1</b>&lt;NOUS&gt;</div><div class="ln i2"><b>2</b>&nbsp;&nbsp;&lt;dados/&gt;</div><div class="ln i2"><b>3</b>&nbsp;&nbsp;&lt;ia/&gt;</div><div class="ln i2"><b>4</b>&nbsp;&nbsp;&lt;infraestrutura/&gt;</div><div class="ln i2"><b>5</b>&lt;/NOUS&gt;</div></div></div>
+<div class="pn" id="p3" style="right:20px;top:330px;width:360px;height:160px"><h4>Terminal</h4>
+ <div class="cd2" style="top:42px;line-height:22px"><div class="ln i3">&gt; nous deploy --cloud</div><div class="ln i3">&nbsp;</div><div class="ln i3 g">✓ conectando dados...</div><div class="ln i3 g">✓ modelo de IA pronto</div><div class="ln i3 g">✓ no ar: nous.app</div></div></div>
 <script>
 const NS="http://www.w3.org/2000/svg",art=document.getElementById("art");
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),ease=x=>1-Math.pow(1-clamp(x),3),seg=(t,a,b)=>clamp((t-a)/(b-a));
@@ -71,8 +70,6 @@ P.forEach((p,i)=>{const n=P.map((q,j)=>({j,d:(q[0]-p[0])**2+(q[1]-p[1])**2})).fi
  NET.push({c:el("circle",{cx:p[0],cy:p[1],r:3.4,fill:"#fff"}),t0:1+(i%8)*.25})});
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const SLOGAN="(CONECTE, ENTENDA, EVOLUA)";
-$$(".t1").forEach(p=>{p.setAttribute("pathLength",1);p.style.strokeDasharray=1});
-$("#chart").style.strokeDasharray=1;
 window.render=function(t){
   // rede e racks se desenham
   NET.forEach(o=>{const q=ease(seg(t,o.t0,o.t0+1.4));if(o.l)o.l.style.strokeDashoffset=1-q;else o.c.style.opacity=q});
@@ -88,15 +85,9 @@ window.render=function(t){
   const n=Math.floor((t-2.9)/0.07),shown=t<2.9?"":SLOGAN.slice(0,Math.max(0,n+1)),done=n+1>=SLOGAN.length;
   const blink=!done||(Math.floor(t*2)%2===0);
   $("#slogan").style.opacity=1-ease(seg(t,7.6,8.8));$("#slogan").innerHTML=t<2.9?"":shown+'<i class="cur" style="opacity:'+(blink?1:0)+'"></i>';
-  // diagrama IaaS
-  $("#p1").style.opacity=.8*ease(seg(t,4.2,5.0));
-  $$(".b1").forEach((b,i)=>b.style.opacity=ease(seg(t,4.6+i*.18,5.2+i*.18)));
-  $$(".t1").forEach((p,i)=>p.style.strokeDashoffset=1-ease(seg(t,5.2+i*.25,6.0+i*.25)));
-  $$(".d1").forEach((c,i)=>c.style.opacity=ease(seg(t,6.0+i*.15,6.5+i*.15)));
-  // growth
-  $("#p2").style.opacity=.8*ease(seg(t,5.0,5.8));
-  $("#chart").style.strokeDashoffset=1-ease(seg(t,5.6,7.4));$("#chartDot").style.opacity=ease(seg(t,7.2,7.6));
-  $$(".r1").forEach((r,i)=>r.style.opacity=ease(seg(t,6.2+i*.3,6.8+i*.3)));
+  // janelas de código (esmaecidas)
+  const W=(id,t0)=>{$(id).style.opacity=.85*ease(seg(t,t0,t0+.8))};W("#p1",4.2);W("#p2",5.0);W("#p3",5.6);
+  [[".i1",4.6],[".i2",5.4],[".i3",6.0]].forEach(([c,t0])=>$$(c).forEach((e,i)=>e.style.opacity=ease(seg(t,t0+i*.12,t0+.5+i*.12))));
 };
 window.render(0);
 </script>
