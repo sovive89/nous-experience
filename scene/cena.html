@@ -14,15 +14,16 @@ body{width:1600px;height:900px;position:relative;overflow:hidden;font-family:"Je
 .grid{position:absolute;left:0;right:0;top:600px;bottom:0;
  background:repeating-linear-gradient(90deg,transparent 0 99px,rgba(255,255,255,.9) 99px 100px),repeating-linear-gradient(0deg,transparent 0 44px,rgba(120,140,170,.18) 44px 45px);
  -webkit-mask-image:linear-gradient(#000,transparent 90%)}
-#logoWrap{position:absolute;left:550px;top:90px;width:500px;transform-origin:50% 60%}
-#logoWrap img{width:500px;display:block}
-#refl{position:absolute;left:550px;top:520px;width:500px;transform:scaleY(-1);filter:blur(2px);-webkit-mask-image:linear-gradient(to top,#000 0,transparent 55%)}
-#slogan{position:absolute;left:0;width:1600px;top:482px;text-align:center;font:600 24px/1 "JetBrains Mono";letter-spacing:.09em;white-space:pre}
+#logoWrap{position:absolute;left:480px;top:70px;width:640px;transform-origin:50% 60%}
+#logoWrap img{width:640px;display:block}
+#refl{position:absolute;left:480px;top:560px;width:640px;transform:scaleY(-1);filter:blur(2px);-webkit-mask-image:linear-gradient(to top,#000 0,transparent 55%)}
+#slogan{position:absolute;left:0;width:1600px;top:578px;text-align:center;font:600 24px/1 "JetBrains Mono";letter-spacing:.09em;white-space:pre}
 .cur{display:inline-block;width:14px;height:3px;background:var(--navy);margin-left:4px}
 svg.full{position:absolute;inset:0;filter:drop-shadow(0 0 3px rgba(120,150,200,.55))}
-.pn{position:absolute;border:1px solid rgba(20,40,75,.22);background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.22));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.07)}
+.pn{position:absolute;border:1px solid rgba(20,40,75,.16);background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border-radius:6px;box-shadow:0 8px 24px rgba(20,40,75,.04);transform:scale(1.28)}
+#p1{transform-origin:0 0}#p2{transform-origin:100% 0}
 .pn h4{position:absolute;left:16px;top:14px;margin:0;font:600 10px/1 "JetBrains Mono";letter-spacing:.16em;color:var(--soft);text-transform:uppercase}
-.bx{position:absolute;border:1.3px solid var(--b);background:rgba(255,255,255,.7);border-radius:4px;font:600 12px/1 "JetBrains Mono";display:flex;align-items:center;justify-content:center;color:var(--navy);flex-direction:column;gap:5px}
+.bx{position:absolute;border:1.3px solid var(--b);background:rgba(255,255,255,.3);border-radius:4px;font:600 12px/1 "JetBrains Mono";display:flex;align-items:center;justify-content:center;color:var(--navy);flex-direction:column;gap:5px}
 .bx small{font:400 8px "JetBrains Mono";color:var(--soft);letter-spacing:.1em}.bx.o{border-color:var(--o)}
 table{position:absolute;left:16px;width:398px;border-collapse:collapse;table-layout:fixed;font:500 11px/1 "JetBrains Mono"}
 th{font:600 8.5px "JetBrains Mono";letter-spacing:.14em;color:var(--soft);text-align:left;padding:0 0 8px;text-transform:uppercase}
@@ -34,7 +35,7 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
 <img id="refl" src="logo.png"><div id="logoWrap"><img id="logo" src="logo.png"></div>
 <div id="slogan"></div>
 
-<div class="pn" id="p1" hidden style="display:none;left:70px;top:150px;width:430px;height:300px"><h4>Arquitetura · IaaS</h4>
+<div class="pn" id="p1" style="left:30px;top:110px;width:430px;height:300px"><h4>Arquitetura · IaaS</h4>
   <svg width="398" height="250" viewBox="0 0 398 250" style="position:absolute;left:16px;top:44px" fill="none" stroke-width="1.6">
     <path class="t1" d="M86 125 H132" stroke="#2f6fe0"/><path class="t1" d="M222 108 H262 V56 H282" stroke="#2f6fe0"/><path class="t1" d="M222 125 H282" stroke="#2f6fe0"/><path class="t1" d="M222 142 H262 V196 H282" stroke="#ff6a1a"/>
     <circle class="d1" cx="86" cy="125" r="3.5" fill="#ff6a1a"/><circle class="d1" cx="282" cy="56" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="125" r="3.5" fill="#2f6fe0"/><circle class="d1" cx="282" cy="196" r="3.5" fill="#ff6a1a"/></svg>
@@ -44,7 +45,7 @@ td{padding:7px 0;border-top:1px solid rgba(20,40,75,.12)}td.m{font-weight:600}.g
   <div class="bx b1" style="left:314px;top:145px;width:100px;height:40px">Cache<small>redis</small></div>
   <div class="bx b1 o" style="left:314px;top:214px;width:100px;height:56px;align-items:stretch;padding:8px 10px;gap:3px;justify-content:center"><span style="text-align:center">Database</span><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i><i style="height:1px;background:rgba(255,106,26,.55)"></i></div>
 </div>
-<div class="pn" id="p2" hidden style="display:none;right:70px;top:150px;width:430px;height:300px"><h4>Growth · usuários ativos</h4>
+<div class="pn" id="p2" style="right:30px;top:110px;width:430px;height:300px"><h4>Growth · usuários ativos</h4>
   <svg width="398" height="150" viewBox="0 0 398 150" fill="none" style="position:absolute;left:16px;top:44px"><g stroke="rgba(20,40,75,.12)"><path d="M0 30H398M0 70H398M0 110H398"/></g>
    <polyline id="chart" pathLength="1" stroke="#2f6fe0" stroke-width="2.2" points="0,128 50,116 100,120 150,92 200,98 250,64 300,52 350,26 398,12"/><circle id="chartDot" cx="398" cy="12" r="4" fill="#ff6a1a"/></svg>
   <table style="top:196px"><tr><th>mês</th><th>usuários</th><th>Δ</th></tr><tr class="r1"><td>jul</td><td class="m">1.240</td><td class="g">+8%</td></tr><tr class="r1"><td>ago</td><td class="m">1.810</td><td class="g">+46%</td></tr><tr class="r1"><td>set</td><td class="m">2.960</td><td class="g">+63%</td></tr></table>
@@ -80,7 +81,7 @@ window.render=function(t){
     r.leds.forEach((e,i)=>e.style.opacity=ease(seg(t,r.t0+1.2+i*.03,r.t0+1.8+i*.03)))});
   // logo: surge de leve e depois recua para o fundo (maior, translúcido)
   const inq=ease(seg(t,1.0,2.6)),back=ease(seg(t,8.0,9.7));
-  const sc=(.96+.04*inq)*(1+.5*back),op=inq*(1-.8*back),bl=8*(1-inq)+3.2*back;
+  const sc=(.96+.04*inq)*(1+.18*back),op=inq*(1-.8*back),bl=8*(1-inq)+3.2*back;
   const lw=$("#logoWrap");lw.style.opacity=op;lw.style.filter=`blur(${bl}px)`;lw.style.transform=`translateY(${20*(1-inq)-14*back}px) scale(${sc})`;
   const rf=$("#refl");rf.style.opacity=.14*inq*(1-back);
   // slogan digitado
@@ -88,12 +89,12 @@ window.render=function(t){
   const blink=!done||(Math.floor(t*2)%2===0);
   $("#slogan").innerHTML=t<2.9?"":shown+'<i class="cur" style="opacity:'+(blink?1:0)+'"></i>';
   // diagrama IaaS
-  $("#p1").style.opacity=ease(seg(t,4.2,5.0));
+  $("#p1").style.opacity=.8*ease(seg(t,4.2,5.0));
   $$(".b1").forEach((b,i)=>b.style.opacity=ease(seg(t,4.6+i*.18,5.2+i*.18)));
   $$(".t1").forEach((p,i)=>p.style.strokeDashoffset=1-ease(seg(t,5.2+i*.25,6.0+i*.25)));
   $$(".d1").forEach((c,i)=>c.style.opacity=ease(seg(t,6.0+i*.15,6.5+i*.15)));
   // growth
-  $("#p2").style.opacity=ease(seg(t,5.0,5.8));
+  $("#p2").style.opacity=.8*ease(seg(t,5.0,5.8));
   $("#chart").style.strokeDashoffset=1-ease(seg(t,5.6,7.4));$("#chartDot").style.opacity=ease(seg(t,7.2,7.6));
   $$(".r1").forEach((r,i)=>r.style.opacity=ease(seg(t,6.2+i*.3,6.8+i*.3)));
 };
